@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 import { User } from '../../user';
 
 @Component({
@@ -10,16 +8,16 @@ import { User } from '../../user';
 })
 export class PageSignInComponent implements OnInit {
 
-  model = new User('','');
+  model = new User('', '');
 
   submitted = false;
 
   onSubmit() {
     this.submitted = true;
   }
-  
+
   constructor() { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
   }
 }

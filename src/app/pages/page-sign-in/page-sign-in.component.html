@@ -1,17 +1,16 @@
 <div class="container-xl">
-    <h1>Sign-in form</h1>
+    <h1 class="text-center">Sign-in form</h1>
     <form (ngSubmit)="onSubmit()" #signInForm="ngForm">
         <div class="form-group">
             <label for="userName">Username</label>
-            <input type="text" class="form-control" id="userName" required
-                [(ngModel)]="model.userName" name="userName">
+            <input type="text" class="form-control" id="userName" required [(ngModel)]="model.userName" name="userName">
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" required
-                [(ngModel)]="model.password" name="password">
+            <input type="password" class="form-control" id="password" required [(ngModel)]="model.password"
+                name="password">
         </div>
-        <button type="submit"class="btn btn-primary" [disabled]=" !signInForm.form.valid">Submit</button>
+        <button type="submit" class="btn btn-primary" [disabled]=" !signInForm.form.valid">Submit</button>
     </form>
 </div>
 <div class="container" [hidden]="!submitted">
