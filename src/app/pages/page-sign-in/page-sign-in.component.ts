@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { User } from '../../user';
 
 @Component({
@@ -8,6 +11,8 @@ import { User } from '../../user';
 })
 export class PageSignInComponent implements OnInit {
 
+  signInError = false;
+
   model = new User('', '');
 
   submitted = false;
@@ -16,8 +21,41 @@ export class PageSignInComponent implements OnInit {
     this.submitted = true;
   }
 
-  constructor() { }
+  constructor(private authService: AuthenticationService, private router: Router) { }
+
+
+  // constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmitSignIn(form: NgForm) {
+    console.log(form.value);
+    const username = form.value.username;
+    const password = form.value.password;
+
+    const requeteObservable = this.authService.logUser(username, password);
+
+    requeteObservable.subscribe({
+      // method a appeler en cas de succès 
+      next: (resp: any) => {
+        console.log(resp.accessToken);
+
+        this.router.navigateByUrl('/');
+        // TODO stockage de mon token
+        // Localstorage
+        localStorage.setItem("token", resp.accessToken);
+        this.authService.messager.next(true);
+      },
+      // method a appeler en cas d'error
+      error: (err: any) => {
+        // affichage message d'erreur coté page
+        this.signInError = true;
+        console.log(err);
+        this.authService.newsletter.next('Erreur de connexion ...');
+      }
+    })
+
+
   }
 }
