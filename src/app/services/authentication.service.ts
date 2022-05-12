@@ -14,8 +14,8 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) {
     this.urlApi = 'https://test-node-jb.herokuapp.com';
+    // this.urlApi = 'http://localhost:59553';
   }
-
 
   public registerUser(username: string, password: string) {
     const body = {
@@ -34,6 +34,7 @@ export class AuthenticationService {
       "password": password
     };
     return this.http.post(`${this.urlApi}/api/auth/login`, body);
+    // return this.http.post(`${this.urlApi}/admin`, body);
   }
 
 }

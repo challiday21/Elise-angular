@@ -17,14 +17,7 @@ export class PageSignInComponent implements OnInit {
 
   submitted = false;
 
-  onSubmit() {
-    this.submitted = true;
-  }
-
   constructor(private authService: AuthenticationService, private router: Router) { }
-
-
-  // constructor() { }
 
   ngOnInit(): void {
   }
