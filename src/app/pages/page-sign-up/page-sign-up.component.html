@@ -3,12 +3,12 @@
     <form #signUpForm="ngForm" (ngSubmit)="onSubmitForm()">
         <div class="form-group">
             <label for="userName">Username</label>
-            <input type="text" class="form-control" id="userName" required [(ngModel)]="model.userName" name="userName">
+            <!--            <input type="text" class="form-control" id="userName" required [(ngModel)]="username" name="userName">-->
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" required [(ngModel)]="model.password"
-                name="password">
+            <!--            <input type="password" class="form-control" id="password" required [(ngModel)]="model.password"-->
+            name="password">
         </div>
         <button type="submit" class="btn btn-primary" [disabled]=" !signUpForm.form.valid">Submit</button>
     </form>

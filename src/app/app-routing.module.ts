@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateMemberComponent } from './pages/create-member/create-member.component';
 import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { PageBenevolesComponent } from './pages/page-benevoles/page-benevoles.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'admin', component: PageAdminComponent },
   { path: 'seniors', component: PageSeniorsComponent },
   { path: 'benevoles', component: PageBenevolesComponent },
+  { path: 'member', component: CreateMemberComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

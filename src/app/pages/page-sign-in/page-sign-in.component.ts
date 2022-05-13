@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { User } from '../../user';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-page-sign-in',
   templateUrl: './page-sign-in.component.html',
   styleUrls: ['./page-sign-in.component.css']
 })
+
 export class PageSignInComponent implements OnInit {
 
   signInError = false;
@@ -37,7 +38,7 @@ export class PageSignInComponent implements OnInit {
         this.router.navigateByUrl('/');
         // TODO stockage de mon token
         // Localstorage
-        localStorage.setItem("token", resp.accessToken);
+        localStorage.setItem("token", resp.token);
         this.authService.messager.next(true);
       },
       // method a appeler en cas d'error

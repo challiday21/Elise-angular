@@ -13,8 +13,8 @@ export class AuthenticationService {
   messager: any;
 
   constructor(private http: HttpClient) {
-    this.urlApi = 'https://test-node-jb.herokuapp.com';
-    // this.urlApi = 'http://localhost:59553';
+    // this.urlApi = 'https://test-node-jb.herokuapp.com';
+    this.urlApi = 'http://localhost:8080';
   }
 
   public registerUser(username: string, password: string) {
@@ -30,10 +30,11 @@ export class AuthenticationService {
 
   public logUser(username: string, password: string) {
     const body = {
-      "email": username,
+      "username": username,
       "password": password
     };
-    return this.http.post(`${this.urlApi}/api/auth/login`, body);
+    return this.http.post(`${this.urlApi}/users/sign-in`, body);
+    // localhost:8080/users/sign-in
     // return this.http.post(`${this.urlApi}/admin`, body);
   }
 
