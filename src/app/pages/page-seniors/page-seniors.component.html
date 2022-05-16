@@ -1,4 +1,27 @@
-<h1>HTML table presentation</h1>
+<h1>Liste de mes pays</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Capital</th>
+            <th>Area</th>
+            <th>Population</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let member of listMembers">
+            <td> member.firstname </td> <!--  Name de mes pays -->
+            <!--             <td>{{ member.firstname }}</td>   Name de mes pays -->
+            <!--             <td>{{ member.lastname }}</td>  Capital de mes pays -->
+            <!--              <td>{{ member.code_dep }}</td>   Area de mes pays -->
+            <!--           <td>{{ member.type_id }}</td>   Population de mes pays -->
+        </tr>
+    </tbody>
+</table>
+
+
+<!-- <h1>HTML table presentation</h1>
 <article class="pt-2 table-responsive-sm">
     <table class="table table-bordered table-hover">
         <caption>List of european region countries</caption>
@@ -29,4 +52,4 @@
             </tr>
         </tbody>
     </table>
-</article>
+</article> -->

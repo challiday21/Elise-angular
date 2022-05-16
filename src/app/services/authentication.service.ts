@@ -14,7 +14,8 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) {
     // this.urlApi = 'https://test-node-jb.herokuapp.com';
-    this.urlApi = 'http://localhost:8080';
+    // this.urlApi = 'http://localhost:8080';
+    this.urlApi = 'http://localhost:58088';
   }
 
   public registerUser(username: string, password: string) {

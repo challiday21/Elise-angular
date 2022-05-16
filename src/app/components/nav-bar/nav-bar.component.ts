@@ -12,4 +12,16 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClickLogout() {
+    localStorage.removeItem('token');
+    this.isAuthenticated = false;
+    this.router.navigateByUrl('/sign-in');
+    /**
+     *  - Supprimer le token dans le localStorage
+        - Modifier la valeur de la propriété isAuthenticated à false
+        - Rediriger l'utilisateur vers la page de connexion ("sign-in")
+     */
+  }
+
+
 }

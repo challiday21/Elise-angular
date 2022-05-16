@@ -15,6 +15,7 @@ import { PageSeniorsComponent } from './pages/page-seniors/page-seniors.componen
 import { PageBenevolesComponent } from './pages/page-benevoles/page-benevoles.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateMemberComponent } from './pages/create-member/create-member.component';
+import { UpdateMemberComponent } from './pages/update-member/update-member.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CreateMemberComponent } from './pages/create-member/create-member.compo
     PageNotFoundComponent,
     PageSeniorsComponent,
     PageBenevolesComponent,
-    CreateMemberComponent],
+    CreateMemberComponent,
+    UpdateMemberComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
