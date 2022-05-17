@@ -10,12 +10,12 @@ export class AuthenticationService {
   private urlApi: string;
   public message = new Subject<boolean>();
   public newsletter = new Subject<string>();
-  messager: any;
+  public messager = new Subject<boolean>();;
 
   constructor(private http: HttpClient) {
     // this.urlApi = 'https://test-node-jb.herokuapp.com';
-    // this.urlApi = 'http://localhost:8080';
-    this.urlApi = 'http://localhost:58088';
+    this.urlApi = 'http://localhost:8080';
+    // this.urlApi = 'http://localhost:58088';
   }
 
   public registerUser(username: string, password: string) {

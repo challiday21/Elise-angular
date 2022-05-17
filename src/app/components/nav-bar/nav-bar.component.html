@@ -8,13 +8,16 @@
         </a>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a class="nav-link px-2 link-secondary" routerLink="sign-up" routerLinkActive="active">Sign-up</a></li>
-            <li><a class="nav-link px-2 link-secondary" routerLink="sign-in" routerLinkActive="active">Sign-in</a></li>
-            <li><a class="nav-link px-2 link-secondary" routerLink="seniors" routerLinkActive="active">Seniors</a></li>
-            <li><a class="nav-link px-2 link-secondary" routerLink="benevoles" routerLinkActive="active">Bénévoles</a>
             <li><a class="nav-link px-2 link-secondary" routerLink="member" routerLinkActive="active">Créer membre</a>
-            <li><a class="nav-link px-2 link-secondary" routerLink="update" routerLinkActive="active">Update
-                    membre</a>
+                <!-- <a class="nav-link px-2 link-secondary" routerLink="update" routerLinkActive="active">Update</a> -->
+            </li>
+        </ul>
+        <ul class="navbar-nav d-flex ms-auto" *ngIf="isAuthenticated === false">
+            <li><a class="nav-link" routerLink="sign-in" routerLinkActive="active">Sign in</a></li>
+        </ul>
+        <ul class="navbar-nav d-flex ms-auto" *ngIf="isAuthenticated === true">
+            <li class="nav-item">
+                <a class="nav-link clickable" (click)="onClickLogout()">Log out</a>
             </li>
         </ul>
 

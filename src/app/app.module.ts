@@ -16,6 +16,7 @@ import { PageBenevolesComponent } from './pages/page-benevoles/page-benevoles.co
 import { HttpClientModule } from '@angular/common/http';
 import { CreateMemberComponent } from './pages/create-member/create-member.component';
 import { UpdateMemberComponent } from './pages/update-member/update-member.component';
+import { PageLogoutComponent } from './pages/page-logout/page-logout.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UpdateMemberComponent } from './pages/update-member/update-member.compo
     PageSeniorsComponent,
     PageBenevolesComponent,
     CreateMemberComponent,
-    UpdateMemberComponent],
+    UpdateMemberComponent,
+    PageLogoutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

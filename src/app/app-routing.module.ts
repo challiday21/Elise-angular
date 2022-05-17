@@ -5,6 +5,7 @@ import { CreateMemberComponent } from './pages/create-member/create-member.compo
 import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { PageBenevolesComponent } from './pages/page-benevoles/page-benevoles.component';
+import { PageLogoutComponent } from './pages/page-logout/page-logout.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageSeniorsComponent } from './pages/page-seniors/page-seniors.component';
 import { PageSignInComponent } from './pages/page-sign-in/page-sign-in.component';
@@ -15,11 +16,12 @@ const routes: Routes = [
   { path: '', component: PageAccueilComponent }, // ici on créer une url associée à notre composant PageAccueil
   { path: 'sign-up', component: PageSignUpComponent },
   { path: 'sign-in', component: PageSignInComponent },
-  { path: 'admin', component: PageAdminComponent },
+  { path: 'logout', component: PageLogoutComponent },
+  { path: 'admin', canActivate: [AuthGuard], component: PageAdminComponent },
   { path: 'seniors', canActivate: [AuthGuard], component: PageSeniorsComponent },
-  { path: 'benevoles', component: PageBenevolesComponent },
-  { path: 'member', component: CreateMemberComponent },
-  { path: 'update', component: UpdateMemberComponent },
+  { path: 'benevoles', canActivate: [AuthGuard], component: PageBenevolesComponent },
+  { path: 'member', canActivate: [AuthGuard], component: CreateMemberComponent },
+  { path: 'update', canActivate: [AuthGuard], component: UpdateMemberComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

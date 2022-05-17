@@ -31,19 +31,14 @@ export class PageSignInComponent implements OnInit {
     const requeteObservable = this.authService.logUser(username, password);
 
     requeteObservable.subscribe({
-      // method a appeler en cas de succès 
       next: (resp: any) => {
         console.log(resp.token);
 
         this.router.navigateByUrl('/');
-        // TODO stockage de mon token
-        // Localstorage
         localStorage.setItem("token", resp.token);
         this.authService.messager.next(true);
       },
-      // method a appeler en cas d'error
       error: (err: any) => {
-        // affichage message d'erreur coté page
         this.signInError = true;
         console.log(err);
         this.authService.newsletter.next('Erreur de connexion ...');

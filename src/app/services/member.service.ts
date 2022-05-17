@@ -9,6 +9,7 @@ import { Member } from '../models/member';
 export class MemberService {
 
   private urlApi: string;
+  private listMembers: any;
 
   constructor(private http: HttpClient) {
     // this.urlApi = 'https://test-node-jb.herokuapp.com';
@@ -27,7 +28,7 @@ export class MemberService {
     const token = localStorage.getItem("token");
 
     return this.http.post(
-      '${this.urlApi}/api/country',
+      '${this.urlApi}/api/member',
       newMember,
       { headers: { Autorization: 'Bearer ${token}' } }
     )
@@ -36,8 +37,9 @@ export class MemberService {
   getMemberById(memberId: string): Observable<Member> {
     const token = localStorage.getItem("token");
 
-    return this.http.get<Member>('${this.urlApi}/api/member/${}',)
-    { headers: Authorization: 'Bearer ${token}' }
+    return this.http.get<Member>(`${this.urlApi}/api/member/${memberId}`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
   }
 
   updateMember(member: Member): Observable<any> {
@@ -51,7 +53,12 @@ export class MemberService {
     return this.http.put<any>('url', body, { headers: { Authorization: 'Bearer ${token}' } })
   }
 
+  deleteMember(memberId: string) {
+    const token = localStorage.getItem("token");
 
+    return this.http.delete(`${this.urlApi}/api/member/${memberId}`,
+      { headers: { Authorization: `Bearer ${token}` } })
 
+  }
 
 }

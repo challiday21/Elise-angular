@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class PageBenevolesComponent implements OnInit {
 
   public listCountries!: any[];
-  public test = ["Coucou", "Hello"];
 
   constructor() { }
 
