@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateMemberComponent } from './pages/create-member/create-member.component';
 import { UpdateMemberComponent } from './pages/update-member/update-member.component';
 import { PageLogoutComponent } from './pages/page-logout/page-logout.component';
+import { ConfirmCreateUserComponent } from './pages/confirm-create-user/confirm-create-user.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PageLogoutComponent } from './pages/page-logout/page-logout.component';
     PageBenevolesComponent,
     CreateMemberComponent,
     UpdateMemberComponent,
-    PageLogoutComponent],
+    PageLogoutComponent,
+    ConfirmCreateUserComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

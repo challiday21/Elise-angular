@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
+import { ConfirmCreateUserComponent } from './pages/confirm-create-user/confirm-create-user.component';
 import { CreateMemberComponent } from './pages/create-member/create-member.component';
 import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'benevoles', canActivate: [AuthGuard], component: PageBenevolesComponent },
   { path: 'member', canActivate: [AuthGuard], component: CreateMemberComponent },
   { path: 'update', canActivate: [AuthGuard], component: UpdateMemberComponent },
+  { path: 'confirm-new-member', canActivate: [AuthGuard], component: ConfirmCreateUserComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
