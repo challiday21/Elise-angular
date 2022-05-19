@@ -34,7 +34,7 @@ export class PageSignInComponent implements OnInit {
       next: (resp: any) => {
         console.log(resp.token);
 
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/admin');
         localStorage.setItem("token", resp.token);
         this.authService.messager.next(true);
       },

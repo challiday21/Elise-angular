@@ -14,7 +14,7 @@ import { PageSignUpComponent } from './pages/page-sign-up/page-sign-up.component
 import { UpdateMemberComponent } from './pages/update-member/update-member.component';
 
 const routes: Routes = [
-  { path: '', component: PageAccueilComponent }, // ici on créer une url associée à notre composant PageAccueil
+  { path: '', component: PageSignInComponent }, // ici on créer une url associée à notre composant PageAccueil
   { path: 'sign-up', component: PageSignUpComponent },
   { path: 'sign-in', component: PageSignInComponent },
   { path: 'logout', component: PageLogoutComponent },

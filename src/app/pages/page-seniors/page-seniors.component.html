@@ -1,23 +1,20 @@
-<h1>Liste de mes pays</h1>
+<h1>Liste des seniors</h1>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Capital</th>
-            <th>Area</th>
-            <th>Population</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Code départemental</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let member of listMembers">
-            <td> member.firstname </td>
             <td>{{ member.firstName }}</td>
             <td>{{ member.lastName }}</td>
             <td>{{ member.codeDep }}</td>
-            <td>{{ member.email }}</td>
             <td>
-                <button class="btn btn-warning" onclick()="onClickDeleteCountry">Supprimer</button>
+                <button class="btn btn-warning" onclick()="onClickDeleteSenior">Supprimer</button>
             </td>
         </tr>
     </tbody>

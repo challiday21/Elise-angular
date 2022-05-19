@@ -28,7 +28,7 @@ export class MemberService {
     const token = localStorage.getItem("token");
 
     return this.http.post(
-      '${this.urlApi}/api/member',
+      `${this.urlApi}/members/create`,
       newMember,
       { headers: { Autorization: 'Bearer ${token}' } }
     )
@@ -48,7 +48,7 @@ export class MemberService {
     const body = {
       firstname: member.firstName,
       lastname: member.lastName,
-      email: member.email
+      codedep: member.codeDep
     }
     return this.http.put<any>('url', body, { headers: { Authorization: 'Bearer ${token}' } })
   }
