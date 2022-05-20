@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,9 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   public isAuthenticated = false;
-  router: any;
 
-  constructor() { }
+  constructor(private authservice: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -20,12 +21,16 @@ export class FooterComponent implements OnInit {
       this.isAuthenticated = true;
     }
 
+    this.authservice.messager.subscribe((message) => {
+      this.isAuthenticated = message;
+    });
+
   }
 
   onClickLogout() {
     localStorage.removeItem('token');
     this.isAuthenticated = false;
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/sign-in');
   }
 
 }

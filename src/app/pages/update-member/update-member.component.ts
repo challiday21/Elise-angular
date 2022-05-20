@@ -24,7 +24,7 @@ export class UpdateMemberComponent implements OnInit {
         console.log(member);
         this.updateMemberForm = this.fb.group({
           firstname: [member.firstName, Validators.required],
-          lastname: [member.lastName, Validators.required],
+          lastname: [member.surname, Validators.required],
           email: [member.codeDep, Validators.required]
         })
       })

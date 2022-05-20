@@ -33,5 +33,4 @@ export class NavBarComponent implements OnInit {
     this.router.navigateByUrl('/sign-in');
   }
 
-
 }

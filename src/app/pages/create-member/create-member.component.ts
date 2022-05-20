@@ -22,7 +22,7 @@ export class CreateMemberComponent implements OnInit {
   ngOnInit(): void {
     this.newMemberForm = this.fb.group({
       firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      surname: ['', Validators.required],
       codeDep: ['', [Validators.required]]
     });
   }
@@ -31,7 +31,7 @@ export class CreateMemberComponent implements OnInit {
     console.log(this.newMemberForm.value);
     const newMember = new Member(
       this.newMemberForm.value.firstName,
-      this.newMemberForm.value.lastName,
+      this.newMemberForm.value.surname,
       this.newMemberForm.value.codeDep
     );
     console.log(newMember);

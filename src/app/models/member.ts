@@ -1,13 +1,13 @@
 export class Member {
 
     firstName: string;
-    lastName: string;
+    surname: string;
     codeDep: string;
-    _id?: string;
+    id?: string;
 
-    constructor(paramFirstName: string, paramLastName: string, paramEmail: string) {
+    constructor(paramFirstName: string, paramSurname: string, paramEmail: string) {
         this.firstName = paramFirstName;
-        this.lastName = paramLastName;
+        this.surname = paramSurname;
         this.codeDep = paramEmail;
     }
 

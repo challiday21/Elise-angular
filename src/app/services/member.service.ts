@@ -30,7 +30,7 @@ export class MemberService {
     return this.http.post(
       `${this.urlApi}/members/create`,
       newMember,
-      { headers: { Autorization: 'Bearer ${token}' } }
+      { headers: { Authorization: `Bearer ${token}` } }
     )
   }
 
@@ -46,11 +46,11 @@ export class MemberService {
     const token = localStorage.getItem("token");
 
     const body = {
-      firstname: member.firstName,
-      lastname: member.lastName,
-      codedep: member.codeDep
+      firstName: member.firstName,
+      surname: member.surname,
+      codeDep: member.codeDep
     }
-    return this.http.put<any>('url', body, { headers: { Authorization: 'Bearer ${token}' } })
+    return this.http.put<any>('url', body, { headers: { Authorization: `Bearer ${token}` } })
   }
 
   deleteMember(memberId: string) {

@@ -31,7 +31,7 @@ export class PageSeniorsComponent implements OnInit {
 
           const deleteMember = this.memberService.getMemberById(memberId);
 
-          this.listMembers = this.listMembers.filter(member => member._id !== memberId);
+          this.listMembers = this.listMembers.filter(member => member.id !== memberId);
         },
         error: (err) => { console.error(err) }
       })
