@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageSignUpComponent } from './pages/page-sign-up/page-sign-up.component';
@@ -23,7 +22,6 @@ import { ConfirmCreateUserComponent } from './pages/confirm-create-user/confirm-
   declarations: [
     AppComponent,
     NavBarComponent,
-    PageAccueilComponent,
     FooterComponent,
     PageSignUpComponent,
     PageSignInComponent,

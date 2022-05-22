@@ -38,7 +38,7 @@ export class CreateMemberComponent implements OnInit {
 
     this.memberService.createNewMember(newMember).subscribe(() => {
       console.log("Le membre a été créé !!!");
-      this.router.navigateByUrl('/confirm-create-user');
+      this.router.navigateByUrl('/admin');
     });
   }
 

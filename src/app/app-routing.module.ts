@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { ConfirmCreateUserComponent } from './pages/confirm-create-user/confirm-create-user.component';
 import { CreateMemberComponent } from './pages/create-member/create-member.component';
-import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { PageBenevolesComponent } from './pages/page-benevoles/page-benevoles.component';
 import { PageLogoutComponent } from './pages/page-logout/page-logout.component';
