@@ -11,6 +11,7 @@ import { MemberService } from 'src/app/services/member.service';
 })
 export class UpdateMemberComponent implements OnInit {
   updateMemberForm: any;
+  router: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -24,10 +25,26 @@ export class UpdateMemberComponent implements OnInit {
         console.log(member);
         this.updateMemberForm = this.fb.group({
           firstname: [member.firstName, Validators.required],
-          lastname: [member.surname, Validators.required],
-          email: [member.codeDep, Validators.required]
+          surname: [member.surname, Validators.required],
+          codeDep: [member.codeDep, Validators.required]
         })
       })
     })
+  }
+
+  onSubmitForm() {
+    console.log(this.updateMemberForm.value);
+    const updateMember = new Member(
+      this.updateMemberForm.value.firstName,
+      this.updateMemberForm.value.surname,
+      this.updateMemberForm.value.codeDep
+    );
+    console.log(updateMember);
+
+    this.memberService.createNewMember(updateMember).subscribe(() => {
+      console.log("Le membre a été créé !!!");
+      this.router.navigateByUrl('/admin');
+    });
+
   }
 }

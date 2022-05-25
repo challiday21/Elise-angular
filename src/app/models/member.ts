@@ -5,10 +5,10 @@ export class Member {
     codeDep: string;
     id?: string;
 
-    constructor(paramFirstName: string, paramSurname: string, paramEmail: string) {
+    constructor(paramFirstName: string, paramSurname: string, paramCodeDep: string) {
         this.firstName = paramFirstName;
         this.surname = paramSurname;
-        this.codeDep = paramEmail;
+        this.codeDep = paramCodeDep;
     }
 
 }

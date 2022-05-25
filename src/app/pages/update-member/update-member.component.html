@@ -1,1 +1,34 @@
-<p>update-member works!</p>
+<h1>Update country</h1>
+<form *ngIf="updateMemberForm" class="mt-5 col-md-6 m-auto" [formGroup]="updateMemberForm" (ngSubmit)="onSubmitForm()">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <div class="input-group">
+            <input placeholder="entrer le nom de votre pays" formControlName="name" type="text" class="form-control"
+                aria-describedby="userHelp" id="name">
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="capital" class="form-label">Capital</label>
+        <div class="input-group">
+            <input placeholder="entrer la capital de votre pays" formControlName="capital" type="text"
+                class="form-control" aria-describedby="userHelp" id="capital">
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="area" class="form-label">Area</label>
+        <div class="input-group">
+            <input placeholder="entrer la superficie de votre pays" formControlName="area" type="number"
+                class="form-control" aria-describedby="userHelp" id="area">
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="population" class="form-label">Population</label>
+        <div class="input-group">
+            <input placeholder="entrer le nombre d'habitants de votre pays" formControlName="population" type="number"
+                class="form-control" aria-describedby="userHelp" id="population">
+        </div>
+    </div>
+    <div class="d-grid col-12 col-md-2 ms-auto">
+        <button [disabled]="updateMemberForm.invalid" type="submit" class="btn btn-primary text-nowrap">Update</button>
+    </div>
+</form>
