@@ -14,6 +14,8 @@ export class CreateMemberComponent implements OnInit {
 
   newMemberForm!: FormGroup;
 
+  submitted = false;
+
   constructor(
     private fb: FormBuilder,
     private memberService: MemberService,
@@ -38,7 +40,7 @@ export class CreateMemberComponent implements OnInit {
 
     this.memberService.createNewMember(newMember).subscribe(() => {
       console.log("Le membre a été créé !!!");
-      this.router.navigateByUrl('/admin');
+      this.router.navigateByUrl('/confirm-new-member');
     });
   }
 

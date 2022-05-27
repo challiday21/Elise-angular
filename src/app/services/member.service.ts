@@ -19,7 +19,7 @@ export class MemberService {
   getAllMembers(): Observable<Member[]> {
     const token = localStorage.getItem("token");
 
-    return this.http.get<Member[]>(`${this.urlApi}/api/member`,
+    return this.http.get<Member[]>(`${this.urlApi}/members/list`,
       { headers: { Authorization: `Bearer ${token}` } }
     )
   }
