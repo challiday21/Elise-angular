@@ -37,7 +37,8 @@ export class MemberService {
   getMemberById(memberId: string): Observable<Member> {
     const token = localStorage.getItem("token");
 
-    return this.http.get<Member>(`${this.urlApi}/api/member/${memberId}`,
+    // return this.http.get<Member>(`${this.urlApi}/member/${memberId}`,
+    return this.http.get<Member>(`${this.urlApi}/members/1`,
       { headers: { Authorization: `Bearer ${token}` } }
     )
   }
@@ -50,13 +51,18 @@ export class MemberService {
       surname: member.surname,
       codeDep: member.codeDep
     }
-    return this.http.put<any>('url', body, { headers: { Authorization: `Bearer ${token}` } })
+
+    // return this.http.put<any>(`${this.urlApi}/member/${member}`,
+    return this.http.put<any>(`${this.urlApi}/member/${member}`,
+      body, 
+      {headers : { Authorization : `Bearer ${token}`}}
+    )
   }
 
   deleteMember(memberId: string) {
     const token = localStorage.getItem("token");
 
-    return this.http.delete(`${this.urlApi}/api/member/${memberId}`,
+    return this.http.delete(`${this.urlApi}/member/${memberId}`,
       { headers: { Authorization: `Bearer ${token}` } })
 
   }

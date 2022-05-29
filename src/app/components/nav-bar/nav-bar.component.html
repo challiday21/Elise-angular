@@ -9,7 +9,13 @@
         <!-- <img src="logo"/> -->
         <!-- <a href="/"><img src="./Logo.jpg"></a> -->
         <ul class="nav col-12 col-md-auto mb-2 justify-content-left mb-md-0" *ngIf="isAuthenticated === true">
+            <li><a class="nav-link px-2 link-secondary" routerLink="admin" routerLinkActive="active">Administrator</a></li>
+        </ul>
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-left mb-md-0" *ngIf="isAuthenticated === true">
             <li><a class="nav-link px-2 link-secondary" routerLink="member" routerLinkActive="active">Créer membre</a></li>
+        </ul>
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-left mb-md-0" *ngIf="isAuthenticated === true">
+            <li><a class="nav-link px-2 link-secondary" routerLink="update" routerLinkActive="active">Modifier membre</a></li>
         </ul>
         <ul class="navbar-nav d-flex ms-auto" *ngIf="isAuthenticated === false">
             <li><a class="nav-link" routerLink="sign-in" routerLinkActive="active">Sign in</a></li>

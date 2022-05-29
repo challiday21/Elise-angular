@@ -21,10 +21,10 @@ export class UpdateMemberComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((param) => {
       console.log(param);
-      this.memberService.getMemberById(param['id-country']).subscribe((member: Member) => {
+      this.memberService.getMemberById(param['id-member']).subscribe((member: Member) => {
         console.log(member);
         this.updateMemberForm = this.fb.group({
-          firstname: [member.firstName, Validators.required],
+          firstName: [member.firstName, Validators.required],
           surname: [member.surname, Validators.required],
           codeDep: [member.codeDep, Validators.required]
         })
@@ -43,7 +43,7 @@ export class UpdateMemberComponent implements OnInit {
 
     this.memberService.createNewMember(updateMember).subscribe(() => {
       console.log("Le membre a été créé !!!");
-      this.router.navigateByUrl('/admin');
+      // this.router.navigateByUrl('/');
     });
 
   }
