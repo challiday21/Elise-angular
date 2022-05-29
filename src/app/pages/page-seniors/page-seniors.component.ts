@@ -22,7 +22,7 @@ export class PageSeniorsComponent implements OnInit {
     })
   }
 
-  onClickDeleteCountry(memberId: string | undefined) {
+/*   onClickDeleteCountry(memberId: string | undefined) {
     console.log(memberId);
     if (memberId) {
       this.memberService.deleteMember(memberId).subscribe({
@@ -37,5 +37,5 @@ export class PageSeniorsComponent implements OnInit {
       })
     }
   }
-
+ */
 }

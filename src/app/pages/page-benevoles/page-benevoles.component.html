@@ -1,10 +1,17 @@
-<p>page-benevoles works!</p>
+<h1>Liste des seniors</h1>
 
-<article>
-    <h2>List of countries</h2>
-    <ul id="countries">
-        <li *ngFor="let country of listCountries">
-            {{ country.name.official }}
-        </li>
-    </ul>
-</article>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Code départemental</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let member of listMembers">
+            <td>{{ member.firstName }}</td>
+            <td>{{ member.surname }}</td>
+            <td>{{ member.codeDep }}</td>
+    </tbody>
+</table>

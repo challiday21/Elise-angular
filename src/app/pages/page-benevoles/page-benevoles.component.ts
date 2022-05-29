@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { Member } from 'src/app/models/member';
+import { MemberService } from 'src/app/services/member.service';
 
 @Component({
   selector: 'app-page-benevoles',
   templateUrl: './page-benevoles.component.html',
   styleUrls: ['./page-benevoles.component.css']
 })
+
+
 export class PageBenevolesComponent implements OnInit {
 
-  public listCountries!: any[];
+  public listMembers!: Member[];
 
-  constructor() { }
+  constructor(private memberService: MemberService) { }
 
   ngOnInit(): void {
 
-    fetch("https://restcountries.com/v3.1/region/europe?fields=name,capital,area,population,cca2")
-      .then((datas) => datas.json())
-      .then((response) => {
-        console.log(response);
-        this.listCountries = response;
-      })
-
+    this.memberService.getAllMembers().subscribe((resp) => {
+      console.log(resp);
+      this.listMembers = resp;
+    })
   }
-
 }
