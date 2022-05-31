@@ -11,6 +11,7 @@ import { MemberService } from 'src/app/services/member.service';
 export class PageSeniorsComponent implements OnInit {
 
   public listMembers!: Member[];
+  public detail!: Member;
 
   constructor(private memberService: MemberService) { }
 
@@ -22,7 +23,12 @@ export class PageSeniorsComponent implements OnInit {
     })
   }
 
-/*   onClickDeleteCountry(memberId: string | undefined) {
+  onClickMember(memberClicked: Member) {
+    console.log(memberClicked.firstName);
+    this.detail = memberClicked;
+  }
+
+  onClickDeleteMember(memberId: string | undefined) {
     console.log(memberId);
     if (memberId) {
       this.memberService.deleteMember(memberId).subscribe({
@@ -31,11 +37,10 @@ export class PageSeniorsComponent implements OnInit {
 
           const deleteMember = this.memberService.getMemberById(memberId);
 
-          this.listMembers = this.listMembers.filter(member => member.id !== memberId);
+          this.listMembers = this.listMembers.filter(member => member._id !== memberId);
         },
         error: (err) => { console.error(err) }
       })
     }
   }
- */
 }

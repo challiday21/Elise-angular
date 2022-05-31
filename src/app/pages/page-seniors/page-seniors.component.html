@@ -13,43 +13,24 @@
             <td>{{ member.firstName }}</td>
             <td>{{ member.surname }}</td>
             <td>{{ member.codeDep }}</td>
-<!--             <td>
-                <button class="btn btn-warning" onclick()="onClickDeleteSenior">Supprimer</button>
+            <td><button (click)="onClickMember(member)">Afficher</button></td>
+            <td>
+                <button class="btn btn-warning" routerLink="/member/{{member._id}}">Modifier</button>
             </td>
- -->        </tr>
+            <td>
+                <button class="btn btn-danger" (click)="onClickDeleteMember(member._id)">
+                    Supprimer
+                </button>
+            </td>
+
+
+        </tr>
     </tbody>
+
+    <article *ngIf="detail">
+        <p>Prénom: {{ detail.firstName }}</p>
+        <p>Nom: {{ detail.surname }}</p>
+        <p>Code départemental: {{ detail.codeDep }}</p>
+    </article>
+
 </table>
-
-
-<!-- <h1>HTML table presentation</h1>
-<article class="pt-2 table-responsive-sm">
-    <table class="table table-bordered table-hover">
-        <caption>List of european region countries</caption>
-        <thead class="table-light border">
-            <tr class="text-center">
-                <th class="col-6">Country</th>
-                <th class="col-1">Area</th>
-                <th class="col-2">Population</th>
-                <th class="col-3">Capital</th>
-            </tr>
-        </thead>
-        <tbody class="border">
-            <tr *ngFor="let country of listCountries">
-                <td class="text-nowrap fw-bold">
-                    {{country.name.official}}
-                </td>
-                <td class="text-end">
-                    {{country.area}}
-                </td>
-                <td class="text-end">
-                    {{country.population}}
-                </td>
-                <td class="text-nowrap">
-                    <a href="#">
-                        {{country.capital[0]}}
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</article> -->

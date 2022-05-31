@@ -52,11 +52,10 @@ export class MemberService {
       codeDep: member.codeDep
     }
 
-    // return this.http.put<any>(`${this.urlApi}/member/${member}`,
-    return this.http.put<any>(`${this.urlApi}/member/${member}`,
-      body, 
-      {headers : { Authorization : `Bearer ${token}`}}
+    return this.http.patch<any>(`${this.urlApi}/member/${member._id}`,
+      body
     )
+    // this.deleteMember(`${this.urlApi}/member/${member}`);
   }
 
   deleteMember(memberId: string) {

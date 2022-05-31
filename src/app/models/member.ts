@@ -1,9 +1,9 @@
 export class Member {
 
+    _id?: string;
     firstName: string;
     surname: string;
     codeDep: string;
-    id?: string;
 
     constructor(paramFirstName: string, paramSurname: string, paramCodeDep: string) {
         this.firstName = paramFirstName;
