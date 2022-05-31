@@ -12,7 +12,6 @@ export class MemberService {
   private listMembers: any;
 
   constructor(private http: HttpClient) {
-    // this.urlApi = 'https://test-node-jb.herokuapp.com';
     this.urlApi = 'http://localhost:8080';
   }
 
@@ -52,10 +51,9 @@ export class MemberService {
       codeDep: member.codeDep
     }
 
-    return this.http.patch<any>(`${this.urlApi}/member/${member._id}`,
+    return this.http.put<any>(`${this.urlApi}/member/${member._id}`,
       body
     )
-    // this.deleteMember(`${this.urlApi}/member/${member}`);
   }
 
   deleteMember(memberId: string) {
