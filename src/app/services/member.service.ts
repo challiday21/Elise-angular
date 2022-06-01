@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Member } from '../models/member';
+import { MemberUpdate } from '../models/memberUpdate';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class MemberService {
 
   private urlApi: string;
   private listMembers: any;
+  memberId: any;
 
   constructor(private http: HttpClient) {
     this.urlApi = 'http://localhost:8080';
@@ -33,25 +35,26 @@ export class MemberService {
     )
   }
 
-  getMemberById(memberId: string): Observable<Member> {
+  getMemberById(memberId: string): Observable<MemberUpdate> {
     const token = localStorage.getItem("token");
-
-    // return this.http.get<Member>(`${this.urlApi}/member/${memberId}`,
-    return this.http.get<Member>(`${this.urlApi}/members/1`,
+    console.log(memberId);
+    return this.http.get<MemberUpdate>(`${this.urlApi}/members/${this.memberId}`,
+      // return this.http.get<Member>(`${this.urlApi}/members/${this.memberId}`),
       { headers: { Authorization: `Bearer ${token}` } }
     )
   }
 
-  updateMember(member: Member): Observable<any> {
+  updateMember(member: MemberUpdate): Observable<any> {
     const token = localStorage.getItem("token");
 
     const body = {
+      id: member._id,
       firstName: member.firstName,
       surname: member.surname,
       codeDep: member.codeDep
     }
 
-    return this.http.put<any>(`${this.urlApi}/member/${member._id}`,
+    return this.http.put<any>(`${this.urlApi}/members/${member._id}`,
       body
     )
   }

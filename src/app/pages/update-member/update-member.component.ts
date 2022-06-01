@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Member } from 'src/app/models/member';
+import { MemberUpdate } from 'src/app/models/memberUpdate';
 import { MemberService } from 'src/app/services/member.service';
 
 @Component({
@@ -21,12 +21,13 @@ export class UpdateMemberComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((param) => {
       console.log(param);
-      this.memberService.getMemberById(param['id-member']).subscribe((member: Member) => {
-        console.log(member);
+      this.memberService.getMemberById(param['id-member']).subscribe((memberUpdate: MemberUpdate) => {
+        console.log(memberUpdate._id);
+        console.log(memberUpdate);
         this.updateMemberForm = this.fb.group({
-          firstName: [member.firstName, Validators.required],
-          surname: [member.surname, Validators.required],
-          codeDep: [member.codeDep, Validators.required]
+          firstName: [memberUpdate.firstName, Validators.required],
+          surname: [memberUpdate.surname, Validators.required],
+          codeDep: [memberUpdate.codeDep, Validators.required]
         })
       })
     })
@@ -34,7 +35,8 @@ export class UpdateMemberComponent implements OnInit {
 
   onSubmitForm() {
     console.log(this.updateMemberForm.value);
-    const updateMember = new Member(
+    const updateMember = new MemberUpdate(
+      this.updateMemberForm.value._id,
       this.updateMemberForm.value.firstName,
       this.updateMemberForm.value.surname,
       this.updateMemberForm.value.codeDep
@@ -42,8 +44,8 @@ export class UpdateMemberComponent implements OnInit {
     console.log(updateMember);
 
     this.memberService.createNewMember(updateMember).subscribe(() => {
-      console.log("Le membre a été créé !!!");
-      // this.router.navigateByUrl('/');
+      console.log("Le membre a été modifié !!!");
+      this.router.navigateByUrl('/admin');
     });
 
   }

@@ -1,6 +1,7 @@
 import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { Member } from 'src/app/models/member';
+import { MemberUpdate } from 'src/app/models/memberUpdate';
 import { MemberService } from 'src/app/services/member.service';
 
 @Component({
@@ -12,6 +13,7 @@ export class PageSeniorsComponent implements OnInit {
 
   public listMembers!: Member[];
   public detail!: Member;
+  router: any;
 
   constructor(private memberService: MemberService) { }
 
@@ -23,24 +25,44 @@ export class PageSeniorsComponent implements OnInit {
     })
   }
 
-  onClickMember(memberClicked: Member) {
+  onClickReadMember(memberClicked: Member) {
     console.log(memberClicked.firstName);
     this.detail = memberClicked;
   }
 
-  onClickDeleteMember(memberId: string | undefined) {
-    console.log(memberId);
-    if (memberId) {
-      this.memberService.deleteMember(memberId).subscribe({
-        next: (resp) => {
-          console.log(resp);
-
-          const deleteMember = this.memberService.getMemberById(memberId);
-
-          this.listMembers = this.listMembers.filter(member => member._id !== memberId);
-        },
-        error: (err) => { console.error(err) }
-      })
-    }
+  onClickUpdateMember(memberClicked: Member) {
+    console.log("Updating", memberClicked.firstName);
+    this.detail = memberClicked;
+    this.router.navigateByUrl('/update');
   }
+
+  /*   onClickUpdateMember(memberUpdate: MemberUpdate) {
+      console.log(memberUpdate);
+      if (memberUpdate) {
+        //this.memberService.updateMember(member).subscribe({
+        this.memberService.getMemberById(memberUpdate._id).subscribe({
+          //getMemberById
+          next: (resp) => {
+            console.log(resp);
+          }
+        })
+      };
+   */
+
+  /*    onClickDeleteMember(memberId: string | undefined) {
+       console.log(memberId);
+       if (memberId) {
+         this.memberService.deleteMember(memberId).subscribe({
+           next: (resp) => {
+             console.log(resp);
+ 
+             const deleteMember = this.memberService.getMemberById(memberId);
+ 
+             this.listMembers = this.listMembers.filter(member => member._id !== memberId);
+           },
+           error: (err) => { console.error(err) }
+         })
+       }
+     }
+   } */
 }
