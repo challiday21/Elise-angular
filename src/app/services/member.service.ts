@@ -53,7 +53,7 @@ export class MemberService {
       surname: member.surname,
       codeDep: member.codeDep
     }
-
+    console.log(member._id);
     return this.http.put<any>(`${this.urlApi}/members/${member._id}`,
       body
     )

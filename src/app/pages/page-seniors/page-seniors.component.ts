@@ -11,8 +11,8 @@ import { MemberService } from 'src/app/services/member.service';
 })
 export class PageSeniorsComponent implements OnInit {
 
-  public listMembers!: Member[];
-  public detail!: Member;
+  public listMembers!: MemberUpdate[];
+  public detail!: MemberUpdate;
   router: any;
 
   constructor(private memberService: MemberService) { }
@@ -25,12 +25,12 @@ export class PageSeniorsComponent implements OnInit {
     })
   }
 
-  onClickReadMember(memberClicked: Member) {
+  onClickReadMember(memberClicked: MemberUpdate) {
     console.log(memberClicked.firstName);
     this.detail = memberClicked;
   }
 
-  onClickUpdateMember(memberClicked: Member) {
+  onClickUpdateMember(memberClicked: MemberUpdate) {
     console.log("Updating", memberClicked.firstName);
     this.detail = memberClicked;
     this.router.navigateByUrl('/update');

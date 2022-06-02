@@ -43,7 +43,7 @@ export class UpdateMemberComponent implements OnInit {
     );
     console.log(updateMember);
 
-    this.memberService.createNewMember(updateMember).subscribe(() => {
+    this.memberService.updateMember(updateMember).subscribe(() => {
       console.log("Le membre a été modifié !!!");
       this.router.navigateByUrl('/admin');
     });
