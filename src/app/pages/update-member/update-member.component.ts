@@ -18,22 +18,24 @@ export class UpdateMemberComponent implements OnInit {
     private memberService: MemberService,
     private fb: FormBuilder) { }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
     this.activatedRoute.params.subscribe((param) => {
       console.log(param);
-      this.memberService.getMemberById(param['id-member']).subscribe((memberUpdate: MemberUpdate) => {
+      this.memberService.getMemberById(param['_id']).subscribe((memberUpdate: MemberUpdate) => {
         console.log(memberUpdate._id);
         console.log(memberUpdate);
         this.updateMemberForm = this.fb.group({
           firstName: [memberUpdate.firstName, Validators.required],
           surname: [memberUpdate.surname, Validators.required],
-          codeDep: [memberUpdate.codeDep, Validators.required]
+          codeDep: [memberUpdate.codeDep, Validators.required],
+          _id: [memberUpdate._id]
         })
       })
     })
   }
 
   onSubmitForm() {
+    const memberToUpdate = this.updateMemberForm.value;
     console.log(this.updateMemberForm.value);
     const updateMember = new MemberUpdate(
       this.updateMemberForm.value._id,
@@ -42,11 +44,6 @@ export class UpdateMemberComponent implements OnInit {
       this.updateMemberForm.value.codeDep
     );
     console.log(updateMember);
-
-    this.memberService.updateMember(updateMember).subscribe(() => {
-      console.log("Le membre a été modifié !!!");
-      this.router.navigateByUrl('/admin');
-    });
 
   }
 }
