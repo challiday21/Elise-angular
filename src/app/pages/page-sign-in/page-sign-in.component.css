@@ -1,3 +1,10 @@
+div,
+ul,
+h1,
+input {
+    font-family: 'Lucida Handwriting Std', sans-serif;
+}
+
 form {
     display: flex;
     flex-direction: column;

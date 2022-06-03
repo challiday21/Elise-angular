@@ -21,8 +21,8 @@ const routes: Routes = [
   { path: 'seniors', canActivate: [AuthGuard], component: PageSeniorsComponent },
   { path: 'benevoles', canActivate: [AuthGuard], component: PageBenevolesComponent },
   { path: 'member', canActivate: [AuthGuard], component: CreateMemberComponent },
-  { path: 'update', canActivate: [AuthGuard], component: UpdateMemberComponent },
-  { path: 'update-member/:id-member', canActivate:[AuthGuard], component: UpdateMemberComponent},
+  // { path: 'update', canActivate: [AuthGuard], component: UpdateMemberComponent },
+  { path: 'update-member/:_id-update-member', canActivate: [AuthGuard], component: UpdateMemberComponent },
   { path: 'confirm-new-member', canActivate: [AuthGuard], component: ConfirmCreateUserComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

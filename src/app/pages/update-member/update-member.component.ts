@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MemberUpdate } from 'src/app/models/memberUpdate';
 import { MemberService } from 'src/app/services/member.service';
 
@@ -10,42 +10,40 @@ import { MemberService } from 'src/app/services/member.service';
   styleUrls: ['./update-member.component.css']
 })
 export class UpdateMemberComponent implements OnInit {
-  updateMemberForm: any;
-  router: any;
+  updateMemberForm!: FormGroup;
+  // router: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private memberService: MemberService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((param) => {
       console.log(param);
-      this.memberService.getMemberById(param['id-member']).subscribe((memberUpdate: MemberUpdate) => {
+      // this.memberService.getMemberById('1').subscribe((memberUpdate: MemberUpdate) => {
+      this.memberService.getMemberById(param['_id-update-member']).subscribe((memberUpdate: MemberUpdate) => {
         console.log(memberUpdate._id);
         console.log(memberUpdate);
         this.updateMemberForm = this.fb.group({
           firstName: [memberUpdate.firstName, Validators.required],
           surname: [memberUpdate.surname, Validators.required],
-          codeDep: [memberUpdate.codeDep, Validators.required]
+          codeDep: [memberUpdate.codeDep, Validators.required],
+          _id: [memberUpdate._id]
         })
       })
     })
   }
 
   onSubmitForm() {
-    console.log(this.updateMemberForm.value);
-    const updateMember = new MemberUpdate(
-      this.updateMemberForm.value._id,
-      this.updateMemberForm.value.firstName,
-      this.updateMemberForm.value.surname,
-      this.updateMemberForm.value.codeDep
-    );
-    console.log(updateMember);
+    const updateMember = this.updateMemberForm.value;
 
-    this.memberService.updateMember(updateMember).subscribe(() => {
+    console.log(this.updateMemberForm.value);
+
+    this.memberService.updateMember(updateMember).subscribe((resp) => {
       console.log("Le membre a été modifié !!!");
-      this.router.navigateByUrl('/admin');
+      this.router.navigateByUrl('/confirm-new-member');
     });
 
   }

@@ -33,7 +33,7 @@ export class PageSeniorsComponent implements OnInit {
   onClickUpdateMember(memberClicked: MemberUpdate) {
     console.log("Updating", memberClicked.firstName);
     this.detail = memberClicked;
-    this.router.navigateByUrl('/update');
+    this.router.navigateByUrl('admin');
   }
 
   /*   onClickUpdateMember(memberUpdate: MemberUpdate) {
