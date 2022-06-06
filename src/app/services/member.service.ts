@@ -39,7 +39,6 @@ export class MemberService {
     const token = localStorage.getItem("token");
     console.log(memberId);
     return this.http.get<MemberUpdate>(`${this.urlApi}/members/${memberId}`,
-      // return this.http.get<Member>(`${this.urlApi}/members/${this.memberId}`),
       { headers: { Authorization: `Bearer ${token}` } }
     )
   }
