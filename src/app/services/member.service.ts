@@ -55,7 +55,8 @@ export class MemberService {
     }
     console.log("Checking memberUpdate._id");
     console.log(memberUpdate._id);
-    return this.http.put<any>(`${this.urlApi}/members/${memberUpdate._id}`,
+    //return this.http.put<any>(`${this.urlApi}/members/${memberUpdate._id}`,
+    return this.http.put<any>(`${this.urlApi}/members/1`,
       body
     )
   }
