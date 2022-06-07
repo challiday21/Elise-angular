@@ -30,6 +30,8 @@ export class UpdateMemberComponent implements OnInit {
           firstName: [memberUpdate.firstName, Validators.required],
           surname: [memberUpdate.surname, Validators.required],
           codeDep: [memberUpdate.codeDep, Validators.required],
+          typeMember: [memberUpdate.typeMember, Validators.required],
+          taskMember: [memberUpdate.taskMember, Validators.required],
           _id: [memberUpdate._id]
         })
       })

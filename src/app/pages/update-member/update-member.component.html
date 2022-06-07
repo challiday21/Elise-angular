@@ -21,7 +21,24 @@
                 type="number" class="form-control" aria-describedby="userHelp" id="codeDep">
         </div>
     </div>
-    <div class="d-grid col-12 col-md-2 ms-auto">
-        <button [disabled]="updateMemberForm.invalid" type="submit" class="btn btn-primary text-nowrap">Update</button>
+    <div class="mb-3">
+        <label for="typeMember" class="form-label">Type de membre</label>
+        <div class="input-group">
+            <input placeholder="Entrer le type de membre" formControlName="typeMember" type="text" class="form-control"
+                aria-describedby="userHelp" id="typeMember">
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="taskMember" class="form-label">Task de membre</label>
+        <div class="input-group">
+            <input placeholder="Entrer le task de membre" formControlName="taskMember" type="text" class="form-control"
+                aria-describedby="userHelp" id="taskMember">
+        </div>
+    </div>
+    <div>
+        <div class="d-grid col-12 col-md-2 ms-auto">
+            <button [disabled]="updateMemberForm.invalid" type="submit"
+                class="btn btn-primary text-nowrap">Update</button>
+        </div>
     </div>
 </form>

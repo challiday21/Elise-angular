@@ -25,7 +25,9 @@ export class CreateMemberComponent implements OnInit {
     this.newMemberForm = this.fb.group({
       firstName: ['', Validators.required],
       surname: ['', Validators.required],
-      codeDep: ['', [Validators.required]]
+      codeDep: ['', [Validators.required]],
+      typeMember: ['', Validators.required],
+      taskMember: ['', [Validators.required]]
     });
   }
 
@@ -34,7 +36,9 @@ export class CreateMemberComponent implements OnInit {
     const newMember = new Member(
       this.newMemberForm.value.firstName,
       this.newMemberForm.value.surname,
-      this.newMemberForm.value.codeDep
+      this.newMemberForm.value.codeDep,
+      this.newMemberForm.value.typeMember,
+      this.newMemberForm.value.taskMember
     );
     console.log(newMember);
 

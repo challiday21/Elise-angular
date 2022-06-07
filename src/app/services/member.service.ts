@@ -50,7 +50,9 @@ export class MemberService {
       _id: memberUpdate._id,
       firstName: memberUpdate.firstName,
       surname: memberUpdate.surname,
-      codeDep: memberUpdate.codeDep
+      codeDep: memberUpdate.codeDep,
+      typeMember: memberUpdate.typeMember,
+      taskMember: memberUpdate.taskMember
     }
     console.log("Checking memberUpdate._id");
     console.log(memberUpdate._id);
