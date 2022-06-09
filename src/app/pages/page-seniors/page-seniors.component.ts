@@ -11,7 +11,7 @@ import { MemberService } from 'src/app/services/member.service';
 })
 export class PageSeniorsComponent implements OnInit {
 
-  public listMembers!: MemberUpdate[];
+  public listMembers!: any[];
   public detail!: MemberUpdate;
   router: any;
 

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Type } from '@angular/core';
 import { Member } from 'src/app/models/member';
+// import { MemberType } from 'src/app/models/memberType';
 import { MemberService } from 'src/app/services/member.service';
+// import { TypeService } from 'src/app/services/memberType.service';
 
 @Component({
   selector: 'app-page-benevoles',
@@ -11,7 +13,8 @@ import { MemberService } from 'src/app/services/member.service';
 
 export class PageBenevolesComponent implements OnInit {
 
-  public listMembers!: Member[];
+  public listMembers!: any[];
+  // public listTypes!: any[];
 
   constructor(private memberService: MemberService) { }
 
@@ -21,5 +24,11 @@ export class PageBenevolesComponent implements OnInit {
       console.log(resp);
       this.listMembers = resp;
     })
+
+/*     this.typeService.getAllTypes().subscribe((respo) => {
+      console.log(respo);
+      this.listTypes = respo;
+    })*/
   }
-}
+ 
+  }

@@ -6,13 +6,18 @@
             <th>Prénom</th>
             <th>Nom</th>
             <th>Code départemental</th>
+            <th>Type de membre</th>
+            <th>Tache de membre</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let member of listMembers">
-            <td>{{ member.firstName }}</td>
+            <ng-container *ngIf="member.type.name == 'Senior'">  
+                <td>{{ member.firstName }}</td>
             <td>{{ member.surname }}</td>
             <td>{{ member.codeDep }}</td>
+            <td>{{ member.type.name }}</td>
+            <td>{{ member.task.name }}</td>
             <td>
                 <!-- <button class="btn btn-warning" routerLink="/update/{{member._id}}">Modifier</button> -->
                 <!-- <button class="btn btn-warning" routerLink="/update-member/{{member._id}}">Modifier</button> -->
@@ -30,6 +35,7 @@
                 </button>
             </td>
  -->
+        </ng-container>
         </tr>
     </tbody>
 

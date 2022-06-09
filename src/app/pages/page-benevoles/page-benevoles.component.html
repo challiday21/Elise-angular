@@ -1,4 +1,4 @@
-<h1>Liste des seniors</h1>
+<h1>Liste des bénévoles</h1>
 
 <table class="table">
     <thead>
@@ -6,12 +6,21 @@
             <th>Prénom</th>
             <th>Nom</th>
             <th>Code départemental</th>
+            <th>Type de membre</th>
+            <th>Tache de membre</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let member of listMembers">
-            <td>{{ member.firstName }}</td>
-            <td>{{ member.surname }}</td>
-            <td>{{ member.codeDep }}</td>
+            <ng-container *ngIf="member.type.name == 'Benevole'">  
+                <td>{{ member.firstName }}</td>
+                <td>{{ member.surname }}</td>
+                <td>{{ member.codeDep }}</td>
+                <td>{{ member.type.name }}</td>
+                <td>{{ member.task.name }}</td>
+                <td>
+                    <button class="btn btn-warning" routerLink="/update-member/1">Modifier</button>
+                </td>
+            </ng-container>
     </tbody>
 </table>
