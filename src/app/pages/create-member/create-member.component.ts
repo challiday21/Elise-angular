@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MemberCreate } from 'src/app/models/memberCreate';
+import { MemberType } from 'src/app/models/memberType';
 import { MemberService } from 'src/app/services/member.service';
+import { TypeService } from 'src/app/services/memberType.service';
+import { TaskService } from 'src/app/services/task.service';
 import { Member } from '../../models/member';
 
 @Component({
@@ -15,20 +19,39 @@ export class CreateMemberComponent implements OnInit {
   newMemberForm!: FormGroup;
 
   submitted = false;
+  typeService: TypeService;
+  taskService: TaskService;
+  type!: MemberType;
+  memberCreate!: MemberCreate;
+  listTypes!: any[];
+  listTasks!: any[];
+  listMembers!: any[];
 
   constructor(
     private fb: FormBuilder,
-    private memberService: MemberService,
-    private router: Router) { }
+    private memberService: MemberService, typeService: TypeService, taskService: TaskService,
+    private router: Router) {
+    this.typeService = typeService;
+    this.taskService = taskService;
+  }
 
   ngOnInit(): void {
     this.newMemberForm = this.fb.group({
       firstName: ['', Validators.required],
       surname: ['', Validators.required],
       codeDep: ['', [Validators.required]],
-      typeMember: ['', Validators.required],
+      typeMember: ['', [Validators.required]],
       taskMember: ['', [Validators.required]]
     });
+
+    this.typeService.getAllTypes().subscribe((respo: any) => {
+      console.log(respo);
+      this.listTypes = respo;
+    })
+    this.taskService.getAllTasks().subscribe((respon: any) => {
+      console.log(respon);
+      this.listTasks = respon;
+    })
   }
 
   onSubmitForm() {
@@ -46,6 +69,7 @@ export class CreateMemberComponent implements OnInit {
       console.log("Le membre a été créé !!!");
       this.router.navigateByUrl('/confirm-new-member');
     });
+
   }
 
 }

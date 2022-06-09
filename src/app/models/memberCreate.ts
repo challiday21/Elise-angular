@@ -1,12 +1,12 @@
-export class Member {
+export class MemberCreate {
 
     firstName: string;
     surname: string;
     codeDep: number;
-    typeMember: number;
-    taskMember: number;
+    typeMember: string;
+    taskMember: string;
 
-    constructor(paramFirstName: string, paramSurname: string, paramCodeDep: number, paramTypeMember: number, paramTaskMember: number) {
+    constructor(paramFirstName: string, paramSurname: string, paramCodeDep: number, paramTypeMember: string, paramTaskMember: string) {
         this.firstName = paramFirstName;
         this.surname = paramSurname;
         this.codeDep = paramCodeDep;

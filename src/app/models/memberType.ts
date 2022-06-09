@@ -1,8 +1,9 @@
 export class MemberType {
+    id: number;
+    name: string;
 
-    memberTypeName: string;
-
-    constructor(paramMemberTypeName: string) {
-        this.memberTypeName = paramMemberTypeName;
+    constructor(paramMemberId: number, paramMemberTypeName: string) {
+        this.id = paramMemberId;
+        this.name = paramMemberTypeName;
     }
 }

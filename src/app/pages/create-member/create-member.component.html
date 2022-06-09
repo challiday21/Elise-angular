@@ -24,19 +24,23 @@
         </div>
     </div>
 
-    <div>
-        <label for="typeMembre" class="form-label">Type de membre</label>
-        <select class="form-select" aria-label="Sélectionner type membre">
-            <option selected>Sélectionner le type de membre</option>
-            <option value="1">Senior</option>
-            <option value="2">Bénévole</option>
+    <div *ngIf="listTypes">
+        <label for="typeMember" class="form-label">Type de membre</label>
+        <select class="form-select" aria-label="Sélectionner type membre" formControlName="typeMember">
+            <option *ngFor="let type of listTypes" [value]="type.id" aria-placeholder="Sélectionner le type de membre">
+                {{type.name}}</option>
+        </select>
+    </div>
+    <div *ngIf="listTasks">
+        <label for="taskMember" class="form-label">Tâche de membre</label>
+        <select class="form-select" aria-label="Sélectionner tâche membre" formControlName="taskMember">
+            <option *ngFor="let task of listTasks" [value]="task.id" aria-placeholder="Sélectionner le tâche de membre">
+                {{task.name}}</option>
         </select>
     </div>
     <div>
-        <label for="typeMembre" class="form-label">Tâche de membre</label>
-        <select class="form-select" aria-label="Sélectionner tâche membre">
-            <option selected>Sélectionner la tâche de membre</option>
-            <option value="1">Visite à domicile</option>
-            <option value="2">Activité en groupe</option>
-        </select>
+        <div class="d-grid col-12 col-md-2 ms-auto">
+            <button [disabled]="newMemberForm.invalid" type="submit" class="btn btn-primary text-nowrap">Créer
+                membre</button>
+        </div>
     </div>

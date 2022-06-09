@@ -25,10 +25,6 @@ export class PageBenevolesComponent implements OnInit {
       this.listMembers = resp;
     })
 
-/*     this.typeService.getAllTypes().subscribe((respo) => {
-      console.log(respo);
-      this.listTypes = respo;
-    })*/
   }
- 
-  }
+
+}
