@@ -20,16 +20,8 @@
                     <td>{{ member.type.name }}</td>
                     <td>{{ member.task.name }}</td>
                     <td>
-                        <!-- <button class="btn btn-warning" routerLink="/update/{{member._id}}">Modifier</button> -->
-                        <!-- <button class="btn btn-warning" routerLink="/update-member/{{member._id}}">Modifier</button> -->
                         <button class="btn btn-warning" [routerLink]="['/update-member',member.id]">Modifier</button>
-                        <!-- <button class="btn btn-warning" routerLink="/update-member/{{member.id}}">Modifier</button> -->
                     </td>
-                    <!-- <td>
-                <button class="btn btn-warning" routerLink="/update">Modifier</button>
-                <button class="btn btn-warning" (click)="onClickUpdateMember(member)">Modifier</button>
-            </td> -->
-
                     <td>
                         <button class="btn btn-danger" (click)="onClickDeleteMember(member.id)">
                             Supprimer
