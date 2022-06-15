@@ -39,7 +39,7 @@ export class CreateMemberComponent implements OnInit {
     this.newMemberForm = this.fb.group({
       firstName: ['', Validators.required],
       surname: ['', Validators.required],
-      codeDep: ['', [Validators.required]],
+      codeDep: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
       typeMember: ['', [Validators.required]],
       taskMember: ['', [Validators.required]]
     });
@@ -56,7 +56,7 @@ export class CreateMemberComponent implements OnInit {
 
   onSubmitForm() {
     console.log(this.newMemberForm.value);
-    const newMember = new Member(
+    const newMember = new MemberCreate(
       this.newMemberForm.value.firstName,
       this.newMemberForm.value.surname,
       this.newMemberForm.value.codeDep,

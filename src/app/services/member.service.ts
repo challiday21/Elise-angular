@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Member } from '../models/member';
+import { MemberCreate } from '../models/memberCreate';
 import { MemberUpdate } from '../models/memberUpdate';
 
 @Injectable({
@@ -25,7 +26,7 @@ export class MemberService {
     )
   }
 
-  createNewMember(newMember: Member) {
+  createNewMember(newMember: MemberCreate) {
     const token = localStorage.getItem("token");
 
     return this.http.post(
@@ -51,13 +52,13 @@ export class MemberService {
       firstName: memberUpdate.firstName,
       surname: memberUpdate.surname,
       codeDep: memberUpdate.codeDep,
-      typeMember: memberUpdate.typeMember,
-      taskMember: memberUpdate.taskMember
+      memberType: memberUpdate.typeMember,
+      memberTask: memberUpdate.taskMember
     }
     console.log("Checking memberUpdate.id");
     console.log(memberUpdate.id);
-    //return this.http.put<any>(`${this.urlApi}/members/${memberUpdate._id}`,
-    return this.http.put<any>(`${this.urlApi}/members/1`,
+    return this.http.put<any>(`${this.urlApi}/members/${memberUpdate.id}`,
+      //return this.http.put<any>(`${this.urlApi}/members/1`,
       body
     )
   }
@@ -65,7 +66,7 @@ export class MemberService {
   deleteMember(memberId: string) {
     const token = localStorage.getItem("token");
 
-    return this.http.delete(`${this.urlApi}/member/${memberId}`,
+    return this.http.delete(`${this.urlApi}/members/${memberId}`,
       { headers: { Authorization: `Bearer ${token}` } })
 
   }

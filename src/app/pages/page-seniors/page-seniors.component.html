@@ -1,48 +1,48 @@
 <h1>Liste des seniors</h1>
 
-<div class="table-responsive" >
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Prénom</th>
-            <th>Nom</th>
-            <th>Code départemental</th>
-            <th>Type de membre</th>
-            <th>Tache de membre</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let member of listMembers">
-            <ng-container *ngIf="member.type.name == 'Senior'">  
-                <td>{{ member.firstName }}</td>
-                <td>{{ member.surname }}</td>
-                <td>{{ member.codeDep }}</td>
-                <td>{{ member.type.name }}</td>
-                <td>{{ member.task.name }}</td>
-            <td>
-                <!-- <button class="btn btn-warning" routerLink="/update/{{member._id}}">Modifier</button> -->
-                <!-- <button class="btn btn-warning" routerLink="/update-member/{{member._id}}">Modifier</button> -->
-                <button class="btn btn-warning" routerLink="/update-member/1">Modifier</button>
-            </td>
-            <!-- <td>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Code départemental</th>
+                <th>Type de membre</th>
+                <th>Tache de membre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let member of listMembers">
+                <ng-container *ngIf="member.type.name == 'Senior'">
+                    <td>{{ member.firstName }}</td>
+                    <td>{{ member.surname }}</td>
+                    <td>{{ member.codeDep }}</td>
+                    <td>{{ member.type.name }}</td>
+                    <td>{{ member.task.name }}</td>
+                    <td>
+                        <!-- <button class="btn btn-warning" routerLink="/update/{{member._id}}">Modifier</button> -->
+                        <!-- <button class="btn btn-warning" routerLink="/update-member/{{member._id}}">Modifier</button> -->
+                        <button class="btn btn-warning" routerLink="/update-member/1">Modifier</button>
+                    </td>
+                    <!-- <td>
                 <button class="btn btn-warning" routerLink="/update">Modifier</button>
                 <button class="btn btn-warning" (click)="onClickUpdateMember(member)">Modifier</button>
             </td> -->
 
-            <td>
-                <button class="btn btn-danger" (click)="onClickDeleteMember(member._id)">
-                    Supprimer
-                </button>
-            </td>
+                    <td>
+                        <button class="btn btn-danger" (click)="onClickDeleteMember(member.id)">
+                            Supprimer
+                        </button>
+                    </td>
 
-        </ng-container>
-        </tr>
-    </tbody>
-    <article *ngIf="detail">
-        <p>Prénom: {{ detail.firstName }}</p>
-        <p>Nom: {{ detail.surname }}</p>
-        <p>Code départemental: {{ detail.codeDep }}</p>
-    </article>
+                </ng-container>
+            </tr>
+        </tbody>
+        <article *ngIf="detail">
+            <p>Prénom: {{ detail.firstName }}</p>
+            <p>Nom: {{ detail.surname }}</p>
+            <p>Code départemental: {{ detail.codeDep }}</p>
+        </article>
 
-</table>
+    </table>
 </div>

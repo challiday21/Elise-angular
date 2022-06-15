@@ -49,19 +49,19 @@ export class PageSeniorsComponent implements OnInit {
       };
    */
 
-    onClickDeleteMember(memberId: string | undefined) {
-       console.log(memberId);
-       if (memberId) {
-         this.memberService.deleteMember(memberId).subscribe({
-           next: (resp) => {
-             console.log(resp);
- 
-             const deleteMember = this.memberService.getMemberById(memberId);
- 
-             this.listMembers = this.listMembers.filter(member => member._id !== memberId);
-           },
-           error: (err) => { console.error(err) }
-         })
-       }
-     }
+  onClickDeleteMember(memberId: string | undefined) {
+    console.log(memberId);
+    if (memberId) {
+      this.memberService.deleteMember(memberId).subscribe({
+        next: (resp) => {
+          console.log(resp);
+
+          const deleteMember = this.memberService.getMemberById(memberId);
+
+          this.listMembers = this.listMembers.filter(member => member._id !== memberId);
+        },
+        error: (err) => { console.error(err) }
+      })
+    }
+  }
 }
