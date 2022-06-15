@@ -35,10 +35,10 @@ export class MemberService {
     )
   }
 
-  getMemberById(memberId: string): Observable<MemberUpdate> {
+  getMemberById(memberId: string): Observable<Member> {
     const token = localStorage.getItem("token");
     console.log(memberId);
-    return this.http.get<MemberUpdate>(`${this.urlApi}/members/${memberId}`,
+    return this.http.get<Member>(`${this.urlApi}/members/${memberId}`,
       { headers: { Authorization: `Bearer ${token}` } }
     )
   }
@@ -47,15 +47,15 @@ export class MemberService {
     const token = localStorage.getItem("token");
 
     const body = {
-      _id: memberUpdate._id,
+      id: memberUpdate.id,
       firstName: memberUpdate.firstName,
       surname: memberUpdate.surname,
       codeDep: memberUpdate.codeDep,
       typeMember: memberUpdate.typeMember,
       taskMember: memberUpdate.taskMember
     }
-    console.log("Checking memberUpdate._id");
-    console.log(memberUpdate._id);
+    console.log("Checking memberUpdate.id");
+    console.log(memberUpdate.id);
     //return this.http.put<any>(`${this.urlApi}/members/${memberUpdate._id}`,
     return this.http.put<any>(`${this.urlApi}/members/1`,
       body

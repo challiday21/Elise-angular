@@ -1,7 +1,7 @@
 div,
 ul,
 h1,
-th,
+th,table,
 td {
-    font-family: 'Lucida Handwriting Std', sans-serif;
+    font-family: 'Lucida Handwriting Italic', sans-serif;
 }

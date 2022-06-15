@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { ConfirmCreateUserComponent } from './pages/confirm-create-user/confirm-create-user.component';
+import { ConfirmUpdateComponent } from './pages/confirm-update/confirm-update.component';
 import { CreateMemberComponent } from './pages/create-member/create-member.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { PageBenevolesComponent } from './pages/page-benevoles/page-benevoles.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
   // { path: 'update', canActivate: [AuthGuard], component: UpdateMemberComponent },
   { path: 'update-member/:_id-update-member', canActivate: [AuthGuard], component: UpdateMemberComponent },
   { path: 'confirm-new-member', canActivate: [AuthGuard], component: ConfirmCreateUserComponent },
+  { path: 'confirm-update', canActivate: [AuthGuard], component: ConfirmUpdateComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

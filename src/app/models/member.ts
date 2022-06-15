@@ -1,17 +1,17 @@
 export class Member {
-
+    id?: number;
     firstName: string;
     surname: string;
     codeDep: number;
-    typeMember: number;
-    taskMember: number;
+    type: any;
+    task: any;
 
-    constructor(paramFirstName: string, paramSurname: string, paramCodeDep: number, paramTypeMember: number, paramTaskMember: number) {
+    constructor(paramFirstName: string, paramSurname: string, paramCodeDep: number, paramTypeMember: any, paramTaskMember: any) {
         this.firstName = paramFirstName;
         this.surname = paramSurname;
         this.codeDep = paramCodeDep;
-        this.typeMember = paramTypeMember;
-        this.taskMember = paramTaskMember;
+        this.type = paramTypeMember;
+        this.task = paramTaskMember;
     }
 
 }

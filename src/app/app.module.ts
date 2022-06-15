@@ -17,6 +17,7 @@ import { UpdateMemberComponent } from './pages/update-member/update-member.compo
 import { PageLogoutComponent } from './pages/page-logout/page-logout.component';
 import { ConfirmCreateUserComponent } from './pages/confirm-create-user/confirm-create-user.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { ConfirmUpdateComponent } from './pages/confirm-update/confirm-update.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AuthInterceptor } from './auth.interceptor';
     CreateMemberComponent,
     UpdateMemberComponent,
     PageLogoutComponent,
-    ConfirmCreateUserComponent],
+    ConfirmCreateUserComponent,
+    ConfirmUpdateComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
