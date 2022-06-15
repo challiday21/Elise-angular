@@ -3,7 +3,7 @@
     <div class="mb-3">
         <label for="firstName" class="form-label">Prénom</label>
         <div class="input-group">
-            <input placeholder="Entrer le prénom de votre member" formControlName="firstName" type="text"
+            <input placeholder="Entrer le prénom de votre membre" formControlName="firstName" type="text"
                 class="form-control" aria-describedby="userHelp" id="firstName">
         </div>
     </div>
@@ -24,15 +24,15 @@
 
     <div *ngIf="listTypes">
         <label for="typeMember" class="form-label">Type de membre</label>
-        <select class="form-select" aria-label="Sélectionner type membre" formControlName="typeMember">
-            <option *ngFor="let type of listTypes" [value]="type.id" aria-placeholder="Sélectionner le type de membre">
+        <select class="form-select" aria-label="Sélectionner type membre" formControlName="memberType">
+            <option *ngFor="let type of listTypes" value={{type.id}} aria-placeholder="Sélectionner le type de membre">
                 {{type.name}}</option>
         </select>
     </div>
     <div *ngIf="listTasks">
         <label for="taskMember" class="form-label">Tâche de membre</label>
-        <select class="form-select" aria-label="Sélectionner tâche membre" formControlName="taskMember">
-            <option *ngFor="let task of listTasks" [value]="task.id" aria-placeholder="Sélectionner le tâche de membre">
+        <select class="form-select" aria-label="Sélectionner tâche membre" formControlName="memberTask">
+            <option *ngFor="let task of listTasks" value={{task.id}} aria-placeholder="Sélectionner le tâche de membre">
                 {{task.name}}</option>
         </select>
     </div>

@@ -20,7 +20,7 @@ export class UpdateMemberComponent implements OnInit {
   typeService: TypeService;
   taskService: TaskService;
   type!: MemberType;
-  memberCreate!: MemberCreate;
+  memberUpdate!: MemberUpdate;
   listTypes!: any[];
   listTasks!: any[];
   listMembers!: any[];
@@ -29,24 +29,24 @@ export class UpdateMemberComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private memberService: MemberService, typeService: TypeService, taskService: TaskService,
     private fb: FormBuilder,
-    private router: Router) { 
-      this.typeService = typeService;
-      this.taskService = taskService;  
-    }
+    private router: Router) {
+    this.typeService = typeService;
+    this.taskService = taskService;
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((param) => {
       console.log(param);
       // this.memberService.getMemberById('1').subscribe((memberUpdate: MemberUpdate) => {
-      this.memberService.getMemberById(param['_id-update-member']).subscribe((memberUpdate: Member) => {
-        console.log(memberUpdate.id);
+      this.memberService.getMemberById(param['id-update-member']).subscribe((memberUpdate: Member) => {
+        console.log("Member id is ", memberUpdate.id);
         console.log(memberUpdate);
         this.updateMemberForm = this.fb.group({
           firstName: [memberUpdate.firstName, Validators.required],
           surname: [memberUpdate.surname, Validators.required],
           codeDep: [memberUpdate.codeDep, Validators.required],
-          typeMember: [memberUpdate.type.id, Validators.required],
-          taskMember: [memberUpdate.task.id, Validators.required],
+          memberType: [memberUpdate.type.id, Validators.required],
+          memberTask: [memberUpdate.task.id, Validators.required],
           id: [memberUpdate.id]
         })
       })
@@ -65,8 +65,9 @@ export class UpdateMemberComponent implements OnInit {
 
   onSubmitForm() {
     const updateMember = this.updateMemberForm.value;
+    this.memberUpdate = this.updateMemberForm.value;
 
-    console.log(this.updateMemberForm.value);
+    console.log(this.memberUpdate);
 
     this.memberService.updateMember(updateMember).subscribe((resp) => {
       console.log("Le membre a été modifié !!!");

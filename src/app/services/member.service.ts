@@ -52,12 +52,12 @@ export class MemberService {
       firstName: memberUpdate.firstName,
       surname: memberUpdate.surname,
       codeDep: memberUpdate.codeDep,
-      memberType: memberUpdate.typeMember,
-      memberTask: memberUpdate.taskMember
+      memberType: memberUpdate.memberType,
+      memberTask: memberUpdate.memberTask
     }
     console.log("Checking memberUpdate.id");
-    console.log(memberUpdate.id);
-    return this.http.put<any>(`${this.urlApi}/members/${memberUpdate.id}`,
+    console.log(memberUpdate);
+    return this.http.put<any>(`${this.urlApi}/members`,
       //return this.http.put<any>(`${this.urlApi}/members/1`,
       body
     )

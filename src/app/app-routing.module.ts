@@ -14,7 +14,7 @@ import { PageSignUpComponent } from './pages/page-sign-up/page-sign-up.component
 import { UpdateMemberComponent } from './pages/update-member/update-member.component';
 
 const routes: Routes = [
-  { path: '', component: PageSignInComponent }, // ici on créer une url associée à notre composant PageAccueil
+  { path: '', component: PageSignInComponent },
   { path: 'sign-up', component: PageSignUpComponent },
   { path: 'sign-in', component: PageSignInComponent },
   { path: 'logout', component: PageLogoutComponent },
@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'benevoles', canActivate: [AuthGuard], component: PageBenevolesComponent },
   { path: 'member', canActivate: [AuthGuard], component: CreateMemberComponent },
   // { path: 'update', canActivate: [AuthGuard], component: UpdateMemberComponent },
-  { path: 'update-member/:_id-update-member', canActivate: [AuthGuard], component: UpdateMemberComponent },
+  { path: 'update-member/:id-update-member', canActivate: [AuthGuard], component: UpdateMemberComponent },
   { path: 'confirm-new-member', canActivate: [AuthGuard], component: ConfirmCreateUserComponent },
   { path: 'confirm-update', canActivate: [AuthGuard], component: ConfirmUpdateComponent },
   { path: '**', component: PageNotFoundComponent },

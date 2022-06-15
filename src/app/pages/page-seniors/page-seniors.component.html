@@ -22,7 +22,8 @@
                     <td>
                         <!-- <button class="btn btn-warning" routerLink="/update/{{member._id}}">Modifier</button> -->
                         <!-- <button class="btn btn-warning" routerLink="/update-member/{{member._id}}">Modifier</button> -->
-                        <button class="btn btn-warning" routerLink="/update-member/1">Modifier</button>
+                        <button class="btn btn-warning" [routerLink]="['/update-member',member.id]">Modifier</button>
+                        <!-- <button class="btn btn-warning" routerLink="/update-member/{{member.id}}">Modifier</button> -->
                     </td>
                     <!-- <td>
                 <button class="btn btn-warning" routerLink="/update">Modifier</button>

@@ -1,19 +1,19 @@
 export class MemberUpdate {
 
-    id?: string;
+    id?: number;
     firstName: string;
     surname: string;
     codeDep: number;
-    typeMember: number;
-    taskMember: number;
+    memberType: number;
+    memberTask: number;
 
-    constructor(paramId: string, paramFirstName: string, paramSurname: string, paramCodeDep: number, paramTypeMember: number, paramTaskMember: number) {
+    constructor(paramId: number, paramFirstName: string, paramSurname: string, paramCodeDep: number, paramMemberType: number, paramMemberTask: number) {
         this.id = paramId;
         this.firstName = paramFirstName;
         this.surname = paramSurname;
         this.codeDep = paramCodeDep;
-        this.typeMember = paramTypeMember;
-        this.taskMember = paramTaskMember;
+        this.memberType = paramMemberType;
+        this.memberTask = paramMemberTask;
     }
 
 }
