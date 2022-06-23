@@ -4,6 +4,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ConfirmCreateUserComponent } from './pages/confirm-create-user/confirm-create-user.component';
 import { ConfirmUpdateComponent } from './pages/confirm-update/confirm-update.component';
 import { CreateMemberComponent } from './pages/create-member/create-member.component';
+import { EspaceMemberComponent } from './pages/espace-member/espace-member.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { PageBenevolesComponent } from './pages/page-benevoles/page-benevoles.component';
 import { PageLogoutComponent } from './pages/page-logout/page-logout.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'update-member/:id-update-member', canActivate: [AuthGuard], component: UpdateMemberComponent },
   { path: 'confirm-new-member', canActivate: [AuthGuard], component: ConfirmCreateUserComponent },
   { path: 'confirm-update', canActivate: [AuthGuard], component: ConfirmUpdateComponent },
+  { path: 'espace-member', canActivate: [AuthGuard], component: EspaceMemberComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

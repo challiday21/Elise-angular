@@ -6,7 +6,6 @@ import { MemberType } from 'src/app/models/memberType';
 import { MemberService } from 'src/app/services/member.service';
 import { TypeService } from 'src/app/services/memberType.service';
 import { TaskService } from 'src/app/services/task.service';
-import { Member } from '../../models/member';
 
 @Component({
   selector: 'app-create-member',
@@ -21,11 +20,11 @@ export class CreateMemberComponent implements OnInit {
   submitted = false;
   typeService: TypeService;
   taskService: TaskService;
-  type!: MemberType;
   memberCreate!: MemberCreate;
+  type!: MemberType;
+  listMembers!: any[];
   listTypes!: any[];
   listTasks!: any[];
-  listMembers!: any[];
 
   constructor(
     private fb: FormBuilder,
@@ -39,7 +38,7 @@ export class CreateMemberComponent implements OnInit {
     this.newMemberForm = this.fb.group({
       firstName: ['', Validators.required],
       surname: ['', Validators.required],
-      codeDep: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
+      codeDep: ['', [Validators.required]],
       typeMember: ['', [Validators.required]],
       taskMember: ['', [Validators.required]]
     });

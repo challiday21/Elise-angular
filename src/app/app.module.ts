@@ -18,6 +18,7 @@ import { PageLogoutComponent } from './pages/page-logout/page-logout.component';
 import { ConfirmCreateUserComponent } from './pages/confirm-create-user/confirm-create-user.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { ConfirmUpdateComponent } from './pages/confirm-update/confirm-update.component';
+import { EspaceMemberComponent } from './pages/espace-member/espace-member.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ConfirmUpdateComponent } from './pages/confirm-update/confirm-update.co
     UpdateMemberComponent,
     PageLogoutComponent,
     ConfirmCreateUserComponent,
-    ConfirmUpdateComponent],
+    ConfirmUpdateComponent,
+    EspaceMemberComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

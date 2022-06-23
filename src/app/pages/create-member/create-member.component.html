@@ -14,7 +14,6 @@
                 class="form-control" aria-describedby="userHelp" id="surname">
         </div>
     </div>
-
     <div class="mb-3">
         <label for="codeDep" class="form-label">Code départemental</label>
         <div class="input-group">
@@ -34,7 +33,6 @@
         <select class="form-select" aria-label="Sélectionner tâche membre" formControlName="taskMember">
             <option *ngFor="let task of listTasks" value={{task.id}} aria-placeholder="Sélectionner le tâche de membre">
                 {{task.name}}</option>
-
         </select>
     </div>
     <div>

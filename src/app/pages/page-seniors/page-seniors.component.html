@@ -20,6 +20,9 @@
                     <td>{{ member.type.name }}</td>
                     <td>{{ member.task.name }}</td>
                     <td>
+                        <button class="btn btn-primary" [routerLink]="['/espace-member']">Examiner</button>
+                    </td>
+                    <td>
                         <button class="btn btn-warning" [routerLink]="['/update-member',member.id]">Modifier</button>
                     </td>
                     <td>
